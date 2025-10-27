@@ -1,0 +1,14 @@
+services:
+  cloudflare-ddns:
+    image: oznu/cloudflare-ddns
+    container_name: cloudflare-ddns
+    restart: always
+    environment:
+      - CF_API_TOKEN=${CF_API_TOKEN}
+      - ZONE_ID=${ZONE_ID}
+      - RR_NAME=${DOMAIN}
+      - API_FREQUENCY=300
+      - TZ=America/Sao_Paulo
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
