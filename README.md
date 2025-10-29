@@ -5,26 +5,25 @@ Altere o valor da variável `DOMAIN` para o seu domínio gerenciado pela cloudfl
 
 Para utilizar essa solução de DDNS você precisa de um Token de API e do ID da Zona para que o Docker possa fazer as alterações de DNS em seu nome.
 
-## Obter o ID da Zona (Domain ID)
-Faça login no seu painel Cloudflare.   
+## Obter o ZONE_ID
+Faça login no seu [painel Cloudflare](https://dash.cloudflare.com/).   
 Selecione seu domínio.   
-Na página Overview (Visão Geral), role para baixo e copie o valor de Zone ID (ID da Zona).
+Na página Overview, role para baixo e copie o valor de Zone ID.
 Edite o arquivo `.env` colando o valor ao lado da variável `ZONE_ID`
 
 ## Criar o Token de API
-Vamos utilizar o Token API por ser mais seguro que a Chave Global.
+Vamos utilizar o Token API por ser mais seguro que a Chave Global. Esse token dará acesso específicamente para alterar o IP e mais nada.
 
-No painel Cloudflare, clique no seu perfil (canto superior direito) e vá em My Profile (Meu Perfil).   
-Vá para a aba API Tokens (Tokens de API) e clique em Create Token (Criar Token).   
-Use o modelo Edit Zone DNS (Editar DNS da Zona) ou Custom Token (Token Personalizado).   
-Configure as Permissões (Permissions):   
-- Zona: DNS
-- Permissão: Edit (Editar)
+No painel Cloudflare, clique no seu perfil (canto superior direito) e cliqeu na opção Profile.   
+Vá para a aba API Tokens e clique em Create Token.   
+Use o modelo 'Edit Zone DNS'.   
+Configure em Permissions:   
+- Zone -> DNS -> Edit
 
-Configure os Recursos (Zone Resources):
-- Zona: Selecione o seu domínio específico (mesmo que foi informado no parametro `DOMAIN` do arquivo `.env`).
+Configure em Zone Resources:
+- Include -> Specific zone -> seu domínio (mesmo valor que foi informado no parametro `DOMAIN` do arquivo `.env`).
 
-Clique em Continue to Summary (Continuar para o Resumo) e depois em Create Token (Criar Token).
+Clique em Continue to Summary e depois em Create Token.
 Copie o Token de API imediatamente. Ele não será exibido novamente.
 Cole o valor do parametro `CF_API_TOKEN` do arquivo `.env`.
 
