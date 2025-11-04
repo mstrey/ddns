@@ -8,11 +8,9 @@ Para utilizar essa solução de DDNS você precisa de um Token de API para que o
 ## Criar o Token de API
 Vamos utilizar o Token API por ser mais seguro que a Chave Global. Esse token dará acesso específicamente para alterar o IP e mais nada.
 
-Faça login no seu [painel Cloudflare](https://dash.cloudflare.com/).   
-No painel Cloudflare, clique no seu perfil (canto superior direito) e clique na opção `Profile`.   
-Vá para a aba `API Tokens` e clique em `Create Token`.   
-Use o modelo `Edit Zone DNS`.   
-No grupo `Permissions` configure:   
+Acesse o painel de [API Tokens](https://dash.cloudflare.com/profile/api-tokens) e clique em `Create Token`.  
+Use o modelo `Edit Zone DNS`.  
+No grupo `Permissions` configure:  
 - Zone -> DNS -> Edit
 
 No grupo `Zone Resources`:
